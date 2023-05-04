@@ -1,5 +1,6 @@
 ## golang project
 This is the first og Go project
+
 # Prerequisites
 golang latest version
 make latest version
