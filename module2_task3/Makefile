@@ -10,17 +10,17 @@ stop:	## Stop the application with the command kill XXXXX where XXXXX is the Pro
 
 clean:	## Stop the application. Delete the binary awesome-api and the log file awesome-api.log
 	-make stop
-	rm ./awesome-api ./awesome-api.log
+	-rm ./awesome-api ./awesome-api.log ./coverage-units.out 
 
 test:	## You want to test it to ensure that it behaves as expected. With the application started, you may want to use the command line curl
-	-curl http://localhost:9999
-	curl http://localhost:9999/health
+	make unit-tests
+	make integration-tests
 
 lint:	## ## Static linting on go files using golangci-lint
 	@golangci-lint run
 
 unit-tests:	## it should execute (successfully) the Golang unit tests:
-	@go test -v -short -coverprofile=coverage-units.out
+	@go test -v -short -coverprofile=coverage-units.out	
 
 integration-tests:	## implemented and should execute (successfully) the Golang integration tests
 	@go test -v -coverprofile=coverage-integrations.out
