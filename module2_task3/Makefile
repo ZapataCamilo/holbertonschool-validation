@@ -22,5 +22,8 @@ lint:	## ## Static linting on go files using golangci-lint
 unit-tests:	## it should execute (successfully) the Golang unit tests:
 	@go test -v -short -coverprofile=coverage-units.out
 
+integration-tests:	## implemented and should execute (successfully) the Golang integration tests
+	@go test -v -coverprofile=coverage-integrations.out
+
 help:	## Show help massage
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
