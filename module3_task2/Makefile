@@ -29,10 +29,10 @@ lint: ## Static linting on go files using golangci-lint
 	@markdownlint README.md DEPLOY.md
 
 unit-tests: ## execute (successfully) the Golang unit tests
-	@go test -v -short -coverprofile=coverage-units.out     
+	@go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## execute the Golang integration tests
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+	@go test -v -short -coverprofile=coverage-units.out
 
 check: ## Markdown linting on syntax and dead links
 	@markdown-link-check ./content/posts/*
