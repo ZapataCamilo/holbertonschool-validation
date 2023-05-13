@@ -24,6 +24,7 @@ test: ## Check expected behaviour of the app
 	@make unit-tests
 	@make integration-tests
 	@make validate
+
 lint: ## Static linting on go files using golangci-lint
 	@-golangci-lint run
 
