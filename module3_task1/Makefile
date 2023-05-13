@@ -29,8 +29,7 @@ lint:   ## Static linting on go files using golangci-lint.
 		@-golangci-lint run
 
 unit-tests:     ## execute (successfully) the Golang unit tests.
-		@go test -v -short -coverprofile=coverage-units.out
-
+		@go test -v -short -coverprofile=coverage-units.out 
 
 integration-tests:	## Execute (successfully) the Golang integration tests.
 		@go test -v -coverprofile=coverage-integrations.out
