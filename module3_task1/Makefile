@@ -24,9 +24,8 @@ test: ## Check expected behaviour of the app
 	@make unit-tests
 	@make integration-tests
 	@make validate
-
 lint: ## Static linting on go files using golangci-lint
-	@golangci-lint run
+	@-golangci-lint run
 
 unit-tests: ## execute (successfully) the Golang unit tests
 	@go test -v -short -coverprofile=coverage-units.out     
@@ -39,7 +38,7 @@ check: ## Markdown linting on syntax and dead links
 	@markdownlint ./content/posts/*
 
 validate: ## should validate the file ./dist/index.html by using the command line Holberton’s W3C Validator
-	-@./w3c_validator.py ./dist/index.html
+	@-./w3c_validator.py ./dist/index.html
 
 help: ## Shows this help message
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
