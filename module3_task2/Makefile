@@ -27,9 +27,10 @@ test: ## Check expected behaviour of the app
 
 lint: ## Static linting on go files using golangci-lint
 	@-golangci-lint run
+	@markdownlint README.md DEPLOY.md
 
 unit-tests: ## execute (successfully) the Golang unit tests
-	@go test -v -short -coverprofile=coverage-units.out     
+	@go test -v -short -coverprofile=coverage-units.out    
 
 integration-tests: ## execute the Golang integration tests
 	@go test -v -coverprofile=coverage-integrations.out
@@ -39,7 +40,7 @@ check: ## Markdown linting on syntax and dead links
 	@markdownlint ./content/posts/*
 
 validate: ## should validate the file ./dist/index.html by using the command line Holberton’s W3C Validator
-	-@./w3c_validator.py ./dist/index.html
+	@-./w3c_validator.py ./dist/index.html
 
 package: ## Create a zip file that contains lis needed files to deply the website
 	@make build
