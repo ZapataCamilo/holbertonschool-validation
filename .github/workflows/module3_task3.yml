@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "30 22 * * *"
 jobs:
-  module3_task3:
+  build-artifact:
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository code
@@ -21,7 +21,7 @@ jobs:
         with:
           name: awesome-website
           path: ./module3_task3/awesome-website.zip
-    build-releas:
+    build-release:
     permissions:
       contents: write
     needs: build-artifact
