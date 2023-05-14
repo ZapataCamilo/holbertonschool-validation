@@ -7,7 +7,7 @@ The archive contains the files needed to deploy awesome website. Unachive it by 
 App starts when you run the command `make run`
 
 ## How to “quickly” verify that the application is running (healthcheck)?
-You can customize them by changing the name awesome-api.log on the Makefile
+You can run `make test` or run a curl command from terminal to localhost
 
 ## How to customize where the application logs are written?
-You can run `make test` or run a curl command from terminal to localhost
+You can customize them by changing the name awesome-api.log on the Makefile
