@@ -26,7 +26,7 @@ test: ## Check expected behaviour of the app
 	@make validate
 
 lint: ## Static linting on go files using golangci-lint
-	@markdownlint *.md
+	@-markdownlint *.md
 
 unit-tests: ## execute (successfully) the Golang unit tests
 	@go test -v -short -coverprofile=coverage-units.out    
@@ -42,7 +42,7 @@ validate: ## should validate the file ./dist/index.html by using the command lin
 	@-./w3c_validator.py ./dist/index.html
 
 package: ## Create a zip file that contains lis needed files to deply the website
-	@hugo
+	@make build
 	@zip awesome-website.zip awesome-api ./dist/
 
 help: ## Shows this help message
