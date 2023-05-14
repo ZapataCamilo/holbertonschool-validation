@@ -38,4 +38,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: awesome-website.zip
-          body: DEPLOY.md
+          body_path: ./module3_task3/DEPLOY.md
