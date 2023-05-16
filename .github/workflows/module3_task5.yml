@@ -21,7 +21,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: awesome-website
-          path: ./module3_task4/awesome-website.zip
+          path: ./module3_task5/awesome-website.zip
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
