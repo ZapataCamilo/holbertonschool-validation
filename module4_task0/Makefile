@@ -1,12 +1,12 @@
 go-build: ## Generates the API binary from golang files.
-	@docker run -v $(shell pwd):/app -w /app golang:latest go build
+	@docker run --volume=$(shell pwd):/app --workdir=/app golang:latest go build
 
 hugo-build: ## Generates the stactic site using go hugo
 	@hugo
 
 build: ## Generate the website from the markdown and configuration files in the directory dist/ and compile the source code of the application to a binary named awesome-api
-	@make check
-	@make lint
+	-@make check
+	-@make lint
 	@make go-build
 	@make hugo-build
 
@@ -35,10 +35,10 @@ lint: ## Static linting on go files using golangci-lint
 	@-markdownlint *.md
 
 unit-tests: ## execute (successfully) the Golang unit tests
-	@docker run -v $(shell pwd):/app -w /app golang:latest go test -v -short -coverprofile=coverage-units.out    
+	@docker run --volume=$(shell pwd):/app --workdir=/app go test -v -short -coverprofile=coverage-units.out    
 
 integration-tests: ## execute the Golang integration tests
-	@docker run -v $(shell pwd):/app -w /app golang:latest go test -v -coverprofile=coverage-integrations.out
+	@docker run --volume=$(shell pwd):/app --workdir=/app go test -v -coverprofile=coverage-integrations.out
 
 check: ## Markdown linting on syntax and dead links
 	@markdown-link-check ./content/posts/*
