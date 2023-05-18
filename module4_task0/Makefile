@@ -35,7 +35,7 @@ lint: ## Static linting on go files using golangci-lint
 	@-markdownlint *.md
 
 unit-tests: ## execute (successfully) the Golang unit tests
-	@docker run --volume=$(shell pwd):/app --workdir=/app golang:latest go test -v -short -coverprofile=coverage-units.out    
+	@docker run --volume=$(shell pwd):/app --workdir=/app golang:latest go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## execute the Golang integration tests
 	@docker run --volume=$(shell pwd):/app --workdir=/app golang:latest go test -v -coverprofile=coverage-integrations.out
