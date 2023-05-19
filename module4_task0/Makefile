@@ -13,7 +13,7 @@ build: ## Generate the website from the markdown and configuration files in the 
 clean: ## Cleanup the content of the directory dist/, the binary awesome-api and the log file awesome-api.log
 	-@make stop
 	-@rm -rf ./dist
-	-@rm ./awesome-api ./awesome-api.log ./coverage-units.out 
+	-@rm ./awesome-api ./awesome-api.log ./coverage-units.out
 
 post: ## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME.
 	@hugo new posts/${POST_NAME}.md
@@ -32,7 +32,7 @@ test: ## Check expected behaviour of the app
 	@make validate
 
 lint: ## Static linting on go files using golangci-lint
-	@-markdownlint *.md
+	@markdownlint README.md DEPLOY.md
 
 unit-tests: ## execute (successfully) the Golang unit tests
 	@docker run --volume=$(shell pwd):/app --workdir=/app golang:latest go test -v -short -coverprofile=coverage-units.out
